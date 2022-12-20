@@ -52,4 +52,15 @@ public class EmployeeOperationsController {
 		return "employee_report";
 	}
 
+
+	@PostMapping("/addOne")
+	public String addEmployee(Map<String,Object> map,@ModelAttribute("emp") Employee emp) {
+		
+		String result=service.registerEmployee(emp);
+		List<Employee> list=service.getAllEmployee();
+		map.put("resultMsg", result);
+		map.put("empsData", list);
+		return "employee_report";
+	}
+
 }
