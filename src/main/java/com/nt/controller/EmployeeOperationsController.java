@@ -22,6 +22,12 @@ public class EmployeeOperationsController {
 		return "home";
 		
 	}
+	@GetMapping("/addOne")
+	public String showAddEmployeeForm(@ModelAttribute("emp") Employee emp) {
+		
+		emp.setJob("Clerk");
+		return "employee_register";
+	}
 	
 	//return the report page controller
 	@GetMapping("/report")
